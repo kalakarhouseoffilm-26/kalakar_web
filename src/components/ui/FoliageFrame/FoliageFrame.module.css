@@ -1,0 +1,13 @@
+.frame {
+  position: absolute;
+  inset: -4rem 0 auto;
+  height: 12rem;
+  opacity: 0.18;
+  pointer-events: none;
+  overflow: hidden;
+}
+.frame img {
+  object-fit: cover;
+  object-position: top;
+  filter: saturate(0.7);
+}

@@ -1,0 +1,31 @@
+.footer {
+  padding-block: clamp(1.25rem, 3vh, 1.75rem);
+  border-top: 1px solid rgba(245, 241, 232, 0.08);
+  background: #070907;
+  position: relative;
+  z-index: 20;
+}
+
+.inner {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.date {
+  color: var(--color-stone);
+  opacity: 0.65;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 640px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+}

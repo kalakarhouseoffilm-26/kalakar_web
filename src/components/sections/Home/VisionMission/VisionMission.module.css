@@ -1,0 +1,286 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(4rem, 8vh, 6rem);
+  background: #080a08;
+  border-bottom: 1px solid rgba(245, 241, 232, 0.07);
+  overflow: hidden;
+}
+
+/* Layered CSS background with animated motion */
+.bgFrame {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.ambientGlow1 {
+  position: absolute;
+  top: -20%;
+  left: 15%;
+  width: 55vw;
+  height: 55vw;
+  max-width: 700px;
+  max-height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 98, 44, 0.12) 0%,
+    rgba(232, 98, 44, 0.03) 45%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: glowFloat1 12s ease-in-out infinite alternate;
+}
+
+.ambientGlow2 {
+  position: absolute;
+  bottom: -20%;
+  right: 10%;
+  width: 50vw;
+  height: 50vw;
+  max-width: 650px;
+  max-height: 650px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(74, 93, 58, 0.18) 0%,
+    rgba(74, 93, 58, 0.04) 50%,
+    transparent 70%
+  );
+  filter: blur(45px);
+  animation: glowFloat2 15s ease-in-out infinite alternate;
+}
+
+.ambientGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(
+    rgba(245, 241, 232, 0.04) 1px,
+    transparent 1px
+  );
+  background-size: 36px 36px;
+  opacity: 0.7;
+}
+
+@keyframes glowFloat1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(40px, 30px) scale(1.08);
+  }
+  100% {
+    transform: translate(-30px, 20px) scale(0.95);
+  }
+}
+
+@keyframes glowFloat2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-35px, -25px) scale(1.1);
+  }
+  100% {
+    transform: translate(25px, -15px) scale(0.92);
+  }
+}
+
+/* Content sits above the bg */
+.root > :global(.container) {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== SECTION HEADER ===== */
+.header {
+  text-align: center;
+  margin-bottom: clamp(3rem, 6vw, 4.5rem);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  background: rgba(201, 185, 154, 0.1);
+  border: 1px solid rgba(201, 185, 154, 0.2);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.sectionTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--color-off-white);
+  margin-bottom: 0.75rem;
+}
+
+.titleAccent {
+  color: var(--color-ember);
+}
+
+.malayalamLine {
+  font-family: var(--font-malayalam);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--color-stone);
+  opacity: 0.7;
+}
+
+/* ===== CARDS GRID ===== */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .cardsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+.cardsGrid > * {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== INDIVIDUAL CARD ===== */
+.card {
+  position: relative;
+  background: rgba(14, 16, 14, 0.85);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(245, 241, 232, 0.1);
+  border-radius: 1.25rem;
+  padding: clamp(2rem, 4vw, 3rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  flex: 1;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 1.25rem 1.25rem 0 0;
+}
+
+.card[data-accent='ember']::before {
+  background: linear-gradient(to right, var(--color-ember), rgba(232, 98, 44, 0.3));
+}
+
+.card[data-accent='moss']::before {
+  background: linear-gradient(to right, #5a9e3c, rgba(74, 93, 58, 0.3));
+}
+
+.card[data-accent='ember']:hover {
+  transform: translateY(-6px);
+  border-color: rgba(232, 98, 44, 0.35);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(232, 98, 44, 0.12);
+}
+
+.card[data-accent='moss']:hover {
+  transform: translateY(-6px);
+  border-color: rgba(90, 158, 60, 0.45);
+  box-shadow:
+    0 24px 48px -12px rgba(0, 0, 0, 0.75),
+    0 0 35px rgba(74, 93, 58, 0.15);
+}
+
+/* Card top row: icon + title */
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cardIcon {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card[data-accent='ember'] .cardIcon {
+  color: var(--color-ember);
+}
+
+.card[data-accent='moss'] .cardIcon {
+  color: #5a9e3c;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.card[data-accent='ember'] .cardTitle {
+  color: var(--color-off-white);
+}
+
+.card[data-accent='moss'] .cardTitle {
+  color: var(--color-off-white);
+}
+
+/* Statement text */
+.cardStatement {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+  line-height: 1.75;
+  color: rgba(245, 241, 232, 0.82);
+  flex-grow: 1;
+}
+
+/* Divider rule */
+.cardRule {
+  height: 1px;
+  background: rgba(245, 241, 232, 0.08);
+}
+
+/* Bottom coda */
+.cardCoda {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.card[data-accent='ember'] .cardCoda {
+  color: var(--color-ember);
+  opacity: 0.85;
+}
+
+.card[data-accent='moss'] .cardCoda {
+  color: #5a9e3c;
+  opacity: 0.85;
+}

@@ -1,0 +1,135 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(4rem, 8vh, var(--space-4xl));
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(232, 98, 44, 0.14) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(74, 93, 58, 0.14) 0%,
+      transparent 50%
+    ),
+    var(--bg);
+  border-top: 0.0625rem solid var(--border);
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-md);
+  margin-bottom: var(--space-xl);
+}
+
+.title {
+  font-size: clamp(2.5rem, 7vw, 5.5rem);
+  text-transform: uppercase;
+  line-height: 0.95;
+  max-width: 16ch;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 55ch;
+  line-height: 1.6;
+}
+
+.titleAccent {
+  color: var(--color-ember);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.whatsappBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: #25d366;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 22px rgba(37, 211, 102, 0.35);
+  transition: all 0.25s ease;
+}
+
+.whatsappBtn:hover {
+  background: #20bd5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+}
+
+.instagramBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.2rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 22px rgba(225, 48, 108, 0.35);
+  transition: all 0.25s ease;
+}
+
+.instagramBtn:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 28px rgba(225, 48, 108, 0.55);
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 60vw;
+  height: 60vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(232, 98, 44, 0.1) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

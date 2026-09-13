@@ -1,0 +1,28 @@
+.header {
+  max-width: 70ch;
+}
+
+.list {
+  display: grid;
+  gap: var(--space-xl);
+  list-style: none;
+  counter-reset: process;
+  margin-bottom: var(--space-2xl);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,232 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(4rem, 8vh, 6rem);
+  background: #090907;
+  border-bottom: 1px solid rgba(245, 241, 232, 0.08);
+}
+
+.header {
+  text-align: center;
+  max-width: 50rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.badge {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-ember);
+  background: rgba(232, 98, 44, 0.1);
+  border: 1px solid rgba(232, 98, 44, 0.3);
+  padding: 0.35rem 1rem;
+  border-radius: 9999px;
+  margin-bottom: 1.25rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-off-white);
+  margin-bottom: 1rem;
+}
+
+.titleEmber {
+  color: var(--color-ember);
+}
+
+.subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  line-height: 1.6;
+  color: var(--color-stone);
+  opacity: 0.9;
+  max-width: 48ch;
+  margin-inline: auto;
+}
+
+.actionWrap {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.externalLinkBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-ember);
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.75rem 1.6rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(232, 98, 44, 0.35);
+  transition: all 0.25s ease;
+}
+
+.externalLinkBtn:hover {
+  background: #f17340;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(232, 98, 44, 0.55);
+}
+
+/* Browser Chrome Frame */
+.browserFrameWrap {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #141410;
+  border: 1px solid rgba(245, 241, 232, 0.12);
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(232, 98, 44, 0.06);
+}
+
+.browserChrome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
+  background: #1c1c16;
+  border-bottom: 1px solid rgba(245, 241, 232, 0.08);
+}
+
+.windowControls {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.controlDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dotRed {
+  background: #ff5f56;
+}
+
+.dotYellow {
+  background: #ffbd2e;
+}
+
+.dotGreen {
+  background: #27c93f;
+}
+
+.addressBar {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 0.35rem 1rem;
+  border-radius: 6px;
+  border: 1px solid rgba(245, 241, 232, 0.06);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: rgba(245, 241, 232, 0.7);
+}
+
+.lockIcon {
+  color: #27c93f;
+}
+
+.addressText {
+  letter-spacing: 0.02em;
+}
+
+.openDirectBtn {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-ember);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.openDirectBtn:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Iframe Container */
+.iframeContainer {
+  position: relative;
+  width: 100%;
+  height: clamp(550px, 78vh, 880px);
+  background: #0d0d0a;
+}
+
+.portfolioIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+.fallbackNotice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1rem;
+  background: #141410;
+  border-top: 1px solid rgba(245, 241, 232, 0.06);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  color: var(--color-stone);
+}
+
+.fallbackLink {
+  color: var(--color-ember);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.fallbackLink:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .browserChrome {
+    padding: 0.65rem 0.85rem;
+  }
+
+  .addressBar {
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding: 0.25rem 0.6rem;
+    font-size: 0.72rem;
+  }
+
+  .iframeContainer {
+    height: 60vh;
+  }
+
+  .fallbackNotice {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+}

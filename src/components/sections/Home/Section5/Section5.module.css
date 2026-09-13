@@ -1,0 +1,347 @@
+.root {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: #0d0c0a;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== CINEMATIC LAYERED STAGE ===== */
+.stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  background-color: #0d0c0a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+@media (max-width: 1023px) {
+  .stage {
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    padding-top: clamp(4rem, 12vh, 6.5rem);
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+  }
+}
+
+/* Layer 1: Background Cave Canvas */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.bgImg {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Layer 2: Gradient on Right Side for Story Content Contrast */
+.gradientRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 65%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+  .gradientRight {
+    width: 100%;
+    opacity: 0.85;
+  }
+}
+
+.gradientImg {
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* Layer 3: Top Leaves with Natural Breeze Movement */
+.topLeftLeaf {
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  width: clamp(160px, 18vw, 320px);
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: top left;
+  animation: topLeftLeafSway 7.8s ease-in-out infinite;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+  will-change: transform;
+}
+
+.topRightLeaf {
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  width: clamp(240px, 28vw, 553px);
+  height: auto;
+  z-index: 3;
+  pointer-events: none;
+  transform-origin: top right;
+  animation: topRightLeafSway 8.5s ease-in-out infinite;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.5));
+  will-change: transform;
+}
+
+.leafImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@keyframes topLeftLeafSway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate3d(8px, 6px, 0) rotate(2deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(3px, 12px, 0) rotate(0.8deg) scale(1.03);
+  }
+  75% {
+    transform: translate3d(-6px, 5px, 0) rotate(-1.5deg) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes topRightLeafSway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  22% {
+    transform: translate3d(7px, 5px, 0) rotate(1.8deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(12px, 9px, 0) rotate(2.6deg) scale(1.03);
+  }
+  78% {
+    transform: translate3d(-3px, 3px, 0) rotate(-0.8deg) scale(1.01);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+/* Layer 4: Upper Banner Typography — ~10% from the top from left to right */
+.titleHeader {
+  position: relative;
+  z-index: 4;
+  width: 100%;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .titleHeader {
+    position: absolute;
+    top: clamp(85px, 11.5vw, 138px);
+    left: 0;
+    right: 0;
+    padding-inline: clamp(2rem, 5.5vw, 6.5rem);
+  }
+}
+
+@media (max-width: 1023px) {
+  .titleHeader {
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+}
+
+.titleInner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.titleMalayalamWrap {
+  width: 100%;
+}
+
+.malayalamTitle {
+  font-family: var(--font-malayalam);
+  font-size: clamp(3.5rem, 7.8vw, 7.8rem);
+  font-weight: 700;
+  color: #ffd438;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  text-shadow: 0 4px 30px rgba(255, 194, 51, 0.4);
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .malayalamTitle {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    text-align: center;
+    font-size: clamp(2.6rem, 10vw, 4.4rem);
+    line-height: 1.05;
+    white-space: normal;
+  }
+}
+
+.subtitleWrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: clamp(0.35rem, 0.8vw, 0.75rem);
+  margin-bottom: clamp(1.25rem, 2.5vh, 2rem);
+  padding-right: clamp(1rem, 3.5vw, 4.5rem);
+}
+
+@media (max-width: 1023px) {
+  .subtitleWrap {
+    justify-content: center;
+    padding-right: 0;
+    margin-top: 0.35rem;
+    margin-bottom: clamp(1.5rem, 3.5vh, 2.5rem);
+  }
+}
+
+.artistEnglishTag {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.4vw, 3.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.85);
+}
+
+@media (max-width: 1023px) {
+  .artistEnglishTag {
+    font-size: clamp(1.35rem, 5.2vw, 2.2rem);
+  }
+}
+
+/* Layer 5 (Left Foreground): FINAL LAYER — Caveman Artist with Paintbrush */
+/* Scaled +3px more, placed in front of title at z-index: 5 so text passes behind */
+.artistLayer {
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .artistLayer {
+    position: absolute;
+    bottom: 0;
+    left: clamp(0%, 1.8vw, 3.5%);
+    width: clamp(487px, 50vw, 887px);
+    display: flex;
+    align-items: flex-end;
+    transform-origin: bottom center;
+    animation: artistBreathing 7.5s ease-in-out infinite alternate;
+    will-change: transform;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.75));
+  }
+}
+
+@media (max-width: 1023px) {
+  .artistLayer {
+    width: min(90vw, 447px);
+    margin-inline: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.artistImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom left;
+}
+
+@keyframes artistBreathing {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2px, -6px, 0) scale(1.012);
+  }
+}
+
+/* Layer 6 (Right Foreground): Story Content positioned with generous breathing space after title */
+.contentWrap {
+  position: relative;
+  z-index: 6;
+}
+
+@media (min-width: 1024px) {
+  .contentWrap {
+    position: absolute;
+    right: clamp(2rem, 5.5vw, 6.5rem);
+    top: clamp(340px, 46%, 470px);
+    bottom: auto;
+    max-width: clamp(380px, 38vw, 560px);
+  }
+}
+
+@media (max-width: 1023px) {
+  .contentWrap {
+    width: 100%;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+    margin-top: auto;
+  }
+}
+
+.contentCard {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.75rem, 1.2vw, 1.15rem);
+  text-align: left;
+}
+
+.storyParagraph {
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.2vw, 1.15rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .topLeftLeaf,
+  .topRightLeaf,
+  .artistLayer {
+    animation: none !important;
+  }
+}

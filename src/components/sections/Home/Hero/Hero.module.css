@@ -1,0 +1,364 @@
+/* Section 2: Fluid full-viewport section with smooth scrolling transitions */
+.section {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #10300b;
+  padding-block: clamp(4rem, 8vh, 6rem);
+}
+
+/* Ambient atmospheric vignette */
+.bgVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 35%,
+    rgba(8, 24, 6, 0.4) 70%,
+    rgba(5, 16, 4, 0.88) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Seamless top blend gradient from Section 1 (dark black/cave) into Section 2 (#10300b) */
+.topBlendGradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(80px, 14vh, 140px);
+  background: linear-gradient(
+    to bottom,
+    #040604 0%,
+    rgba(4, 6, 4, 0.75) 30%,
+    rgba(16, 48, 11, 0.25) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+  z-index: 4;
+}
+
+/* Seamless bottom blend gradient from Section 2 (#10300b) into Section 3 (#b07d4c) */
+.bottomBlendGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(90px, 18vh, 180px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(16, 48, 11, 0.4) 35%,
+    rgba(90, 60, 28, 0.5) 70%,
+    #b07d4c 100%
+  );
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* ===== LAYER 2: Caveman Sculptor carving stone totem (Increased size) ===== */
+.sculptorWrap {
+  position: absolute;
+  right: -2%;
+  bottom: 0;
+  width: clamp(528px, 64vw, 1128px);
+  max-height: 94vh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  pointer-events: none;
+  z-index: 5;
+  filter: drop-shadow(0 25px 50px rgba(0, 0, 0, 0.85));
+}
+
+.sculptorInner {
+  width: 100%;
+  height: auto;
+}
+
+.sculptorImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom right;
+}
+
+/* ===== LAYER 3: Third Layer Leaves (Top Left & Top Right) with organic breeze sway ===== */
+.leafThird {
+  position: absolute;
+  pointer-events: none;
+  z-index: 10;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.7));
+}
+
+/* Resized: Increased size per user request */
+.leafThirdLeft {
+  top: -20px;
+  left: -10px;
+  width: clamp(170px, 22vw, 340px);
+  transform-origin: top left;
+}
+
+/* Resized: Reduced size to align harmoniously with previous section */
+.leafThirdRight {
+  top: -10px;
+  right: -5px;
+  width: clamp(95px, 11vw, 175px);
+  transform-origin: top right;
+}
+
+.leafSwayLeft {
+  width: 100%;
+  height: 100%;
+  animation: leafSwayLeft 7.5s ease-in-out infinite alternate;
+}
+
+.leafSwayRight {
+  width: 100%;
+  height: 100%;
+  animation: leafSwayRight 8.2s ease-in-out 0.4s infinite alternate;
+}
+
+/* Uniform gentle breeze: drifting clockwise/rightward together */
+@keyframes leafSwayLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(7px, -4px) rotate(2deg);
+  }
+  100% {
+    transform: translate(-3px, 2px) rotate(-1deg);
+  }
+}
+
+@keyframes leafSwayRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(6px, -3px) rotate(1.8deg);
+  }
+  100% {
+    transform: translate(-2px, 2px) rotate(-0.8deg);
+  }
+}
+
+/* ===== LAYER 4: Fourth Layer Bottom Left Foreground Leaf ===== */
+.fourthLayerBottomLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: clamp(180px, 24vw, 400px);
+  pointer-events: none;
+  z-index: 12;
+  transform-origin: bottom left;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.8));
+}
+
+.leafSwayBottom {
+  width: 100%;
+  height: 100%;
+  animation: leafSwayBottom 7.8s ease-in-out 0.2s infinite alternate;
+}
+
+@keyframes leafSwayBottom {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(7px, -5px) rotate(2.2deg);
+  }
+  100% {
+    transform: translate(-3px, 3px) rotate(-1.1deg);
+  }
+}
+
+.leafImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ===== CONTENT COLUMN: TOP LAYER (z-index: 40/41) with generous padding ===== */
+.inner {
+  position: relative;
+  z-index: 40; /* Placed at top layer: above leaves and background elements */
+  width: 100%;
+  padding-left: clamp(3.5rem, 11vw, 13rem);
+  padding-right: clamp(2.5rem, 8vw, 10rem);
+}
+
+.content {
+  position: relative;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  max-width: 40rem;
+}
+
+/* Script text: "Stories that" in Black Matteo font */
+.eyebrowScript {
+  font-family: var(--font-script), 'Black Matteo', cursive;
+  font-size: clamp(2.4rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  display: block;
+  margin-bottom: -0.5rem;
+  line-height: 1.1;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.85);
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 8.5vw, 7.8rem);
+  line-height: 0.9;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.titleHighlight {
+  color: #E8622C;
+  display: block;
+  text-shadow: 0 4px 20px rgba(232, 98, 44, 0.35);
+}
+
+.titleWhite {
+  color: #ffffff;
+  display: block;
+  text-shadow: 0 4px 25px rgba(0, 0, 0, 0.8);
+}
+
+.lead {
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.5vw, 1.18rem);
+  line-height: 1.65;
+  color: rgba(245, 241, 232, 0.92);
+  max-width: 44ch;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 0.75rem;
+}
+
+/* Button styling & size per user request */
+.primaryBtn {
+  background: #E8622C !important;
+  color: #ffffff !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  box-shadow: 0 4px 20px rgba(232, 98, 44, 0.45);
+  transition: all 0.25s ease;
+}
+
+.primaryBtn:hover {
+  background: #f17340 !important;
+  box-shadow: 0 6px 28px rgba(232, 98, 44, 0.65);
+  transform: translateY(-2px);
+}
+
+.ghostBtn {
+  background: rgba(245, 241, 232, 0.08) !important;
+  color: #ffffff !important;
+  border: 1.5px solid rgba(245, 241, 232, 0.4) !important;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s ease;
+}
+
+.ghostBtn:hover {
+  background: rgba(245, 241, 232, 0.16) !important;
+  border-color: rgba(245, 241, 232, 0.8) !important;
+  transform: translateY(-2px);
+}
+
+/* ===== MOBILE ADAPTATIONS ===== */
+@media (max-width: 768px) {
+  .section {
+    min-height: 100vh;
+    padding-top: clamp(5.5rem, 14vh, 7.5rem);
+    padding-bottom: clamp(3rem, 8vh, 5rem);
+  }
+
+  .inner {
+    padding-left: clamp(1.75rem, 6vw, 3rem);
+    padding-right: clamp(1.75rem, 6vw, 3rem);
+  }
+
+  .content {
+    max-width: 100%;
+    text-align: left;
+    gap: 0.75rem;
+  }
+
+  .eyebrowScript {
+    font-size: clamp(1.8rem, 6.5vw, 2.4rem);
+    margin-bottom: -0.35rem;
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 10vw, 3.8rem);
+  }
+
+  .lead {
+    font-size: 0.88rem;
+    max-width: 100%;
+    line-height: 1.55;
+  }
+
+  .sculptorWrap {
+    width: min(92vw, 448px);
+    right: -4%;
+    bottom: 0;
+    opacity: 0.88;
+  }
+
+  .leafThirdLeft {
+    width: clamp(100px, 24vw, 150px);
+    top: -8px;
+    left: -6px;
+  }
+
+  .leafThirdRight {
+    width: clamp(55px, 12vw, 85px);
+    top: -5px;
+    right: -5px;
+  }
+
+  .fourthLayerBottomLeft {
+    width: clamp(110px, 24vw, 160px);
+  }
+
+  .actions {
+    gap: 0.75rem;
+  }
+
+  .primaryBtn,
+  .ghostBtn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.76rem;
+  }
+}

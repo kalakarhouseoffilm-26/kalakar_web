@@ -1,0 +1,335 @@
+.root {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: #0d0d0b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== ROW 1: CINEMATIC LAYERED STAGE ===== */
+.stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+}
+
+/* Layer 1: Background Base with Cave Painter */
+.stageBase {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.stageBaseImg {
+  object-fit: cover;
+  object-position: left center;
+}
+
+/* Layer 3: Atmospheric Gradient Darkening Right Side for Typography */
+.stageGradientRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.stageGradientImg {
+  object-fit: cover;
+  object-position: right center;
+}
+
+/* Layer 2: Top Blurred Foliage with rich canopy breeze */
+.stageTopFoliage {
+  position: absolute;
+  top: -15px;
+  left: -2%;
+  width: 104%;
+  height: clamp(80px, 15vw, 195px);
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: 35% 0%;
+  animation: stageTopFoliageSway 8.6s ease-in-out infinite;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.45));
+  will-change: transform;
+}
+
+.stageTopFoliageImg {
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Layer 2: Bottom Corner Framing Leaves with natural wind rustle */
+.stageBottomLeftLeaf {
+  position: absolute;
+  bottom: -22px;
+  left: -12px;
+  width: clamp(150px, 19vw, 310px);
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: 10% 90%;
+  animation: stageBottomLeftSway 6.9s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(4px 18px 32px rgba(0, 0, 0, 0.65));
+  will-change: transform;
+}
+
+.stageBottomRightLeaf {
+  position: absolute;
+  bottom: -24px;
+  right: -12px;
+  width: clamp(220px, 28vw, 520px);
+  height: auto;
+  z-index: 5;
+  pointer-events: none;
+  transform-origin: 90% 90%;
+  animation: stageBottomRightSway 7.6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  filter: drop-shadow(-8px 20px 38px rgba(0, 0, 0, 0.7));
+  will-change: transform;
+}
+
+@keyframes stageTopFoliageSway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  22% {
+    transform: translate3d(14px, 6px, 0) rotate(1.2deg) scale(1.015);
+  }
+  45% {
+    transform: translate3d(6px, 11px, 0) rotate(0.4deg) scale(1.025);
+  }
+  70% {
+    transform: translate3d(-16px, 7px, 0) rotate(-1.5deg) scale(1.012);
+  }
+  88% {
+    transform: translate3d(-7px, 2px, 0) rotate(-0.5deg) scale(1.005);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes stageBottomLeftSway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  20% {
+    transform: translate3d(8px, -10px, 0) rotate(2.8deg) scale(1.02);
+  }
+  48% {
+    transform: translate3d(14px, -14px, 0) rotate(3.8deg) scale(1.035);
+  }
+  74% {
+    transform: translate3d(6px, -7px, 0) rotate(1deg) scale(1.015);
+  }
+  88% {
+    transform: translate3d(-3px, -2px, 0) rotate(-1.2deg) scale(0.995);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+@keyframes stageBottomRightSway {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+  24% {
+    transform: translate3d(8px, -6px, 0) rotate(1.8deg) scale(1.02);
+  }
+  50% {
+    transform: translate3d(12px, -10px, 0) rotate(2.6deg) scale(1.03);
+  }
+  76% {
+    transform: translate3d(5px, -4px, 0) rotate(0.8deg) scale(1.01);
+  }
+  88% {
+    transform: translate3d(-3px, 2px, 0) rotate(-0.8deg) scale(0.995);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+  }
+}
+
+.cornerLeafImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Content Column: Positioned on Right, Left-Aligned Typography */
+.stageContentWrap {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(1.5rem, 6vw, 5rem);
+  display: flex;
+  justify-content: flex-end;
+}
+
+.stageContent {
+  width: 100%;
+  max-width: 38rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  text-align: left;
+}
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: #f5f1e8;
+  margin-bottom: 0.25rem;
+  display: block;
+  text-align: left;
+}
+
+.storyTitle {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 7.2vw, 6.2rem);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: #f5efe4;
+  text-align: left;
+}
+
+.greenStory {
+  color: #22c55e;
+  display: inline-block;
+  filter: drop-shadow(0 0 16px rgba(34, 197, 94, 0.45));
+}
+
+.blinkingDot {
+  display: inline-block;
+  color: #22c55e;
+  margin-left: 0.04em;
+  animation: storyDotBlink 1.15s ease-in-out infinite;
+  transform-origin: center bottom;
+  will-change: opacity, transform;
+}
+
+@keyframes storyDotBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.95)) drop-shadow(0 0 24px rgba(34, 197, 94, 0.6));
+  }
+  42% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 12px rgba(34, 197, 94, 0.95)) drop-shadow(0 0 24px rgba(34, 197, 94, 0.6));
+  }
+  48%, 88% {
+    opacity: 0;
+    transform: scale(0.5);
+    filter: drop-shadow(0 0 0px transparent);
+  }
+  94% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+}
+
+.storyBody {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.25vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(245, 241, 232, 0.88);
+  text-align: left;
+}
+
+.missionText {
+  font-family: var(--font-body);
+  font-size: clamp(0.92rem, 1.25vw, 1.05rem);
+  line-height: 1.65;
+  color: rgba(245, 241, 232, 0.88);
+  text-align: left;
+  margin-top: 0.25rem;
+}
+
+.missionLabel {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+/* Mobile Responsiveness for Row 1 Stage */
+@media (max-width: 1023px) {
+  .stage {
+    min-height: auto;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: #0d0d0b;
+  }
+
+  .stageBase {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    height: auto;
+  }
+
+  .stageGradientRight {
+    display: none;
+  }
+
+  .stageContentWrap {
+    justify-content: flex-start;
+    padding-top: 1.5rem;
+    padding-inline: clamp(1.25rem, 5vw, 2.5rem);
+  }
+
+  .stageContent {
+    max-width: 100%;
+    gap: 1rem;
+  }
+
+  .storyTitle {
+    font-size: clamp(2.6rem, 9vw, 3.8rem);
+    line-height: 0.95;
+  }
+
+  .stageBottomLeftLeaf {
+    width: clamp(80px, 18vw, 130px);
+  }
+
+  .stageBottomRightLeaf {
+    width: clamp(120px, 26vw, 180px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stageTopFoliage,
+  .stageBottomLeftLeaf,
+  .stageBottomRightLeaf,
+  .blinkingDot {
+    animation: none !important;
+  }
+}

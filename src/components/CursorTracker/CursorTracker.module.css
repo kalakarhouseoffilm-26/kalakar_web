@@ -1,0 +1,83 @@
+/* Dot — precise position */
+.dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: var(--color-ember);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  /* Offset so the center of the dot is at the cursor point */
+  margin-left: -4px;
+  margin-top: -4px;
+  box-shadow:
+    0 0 6px rgba(232, 98, 44, 0.9),
+    0 0 12px rgba(232, 98, 44, 0.5);
+  will-change: transform;
+}
+
+.dot.visible {
+  opacity: 1;
+}
+
+/* Halo — lagging torch ring */
+.halo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(232, 98, 44, 0.55);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    width 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+  /* Center the ring at cursor */
+  margin-left: -18px;
+  margin-top: -18px;
+  background: radial-gradient(
+    circle,
+    rgba(232, 98, 44, 0.04) 0%,
+    transparent 70%
+  );
+  will-change: transform;
+}
+
+.halo.visible {
+  opacity: 1;
+}
+
+/* Hover state — ring expands and glows warmer */
+.halo.haloHover {
+  width: 54px;
+  height: 54px;
+  margin-left: -27px;
+  margin-top: -27px;
+  border-color: rgba(232, 98, 44, 0.85);
+  box-shadow:
+    0 0 20px rgba(232, 98, 44, 0.25),
+    inset 0 0 10px rgba(232, 98, 44, 0.08);
+  background: radial-gradient(
+    circle,
+    rgba(232, 98, 44, 0.08) 0%,
+    transparent 70%
+  );
+}
+
+/* Hide custom cursor on touch/mobile devices */
+@media (pointer: coarse) {
+  .dot,
+  .halo {
+    display: none;
+  }
+}

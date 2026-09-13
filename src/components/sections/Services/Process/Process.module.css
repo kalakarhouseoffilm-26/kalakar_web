@@ -1,0 +1,12 @@
+.list {
+  display: grid;
+  gap: var(--space-lg);
+  list-style: none;
+  counter-reset: process;
+}
+
+@media (min-width: 640px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

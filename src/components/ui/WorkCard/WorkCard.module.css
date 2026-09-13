@@ -1,0 +1,116 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-xl);
+  background: var(--surface);
+  border: 0.0625rem solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.card:hover {
+  background: var(--bg-raised);
+}
+
+.orange {
+  border-left: 0.25rem solid var(--accent-orange);
+}
+
+.orange:hover {
+  border-color: var(--accent-orange);
+}
+
+.green {
+  border-left: 0.25rem solid var(--accent-green);
+}
+
+.green:hover {
+  border-color: var(--accent-green);
+}
+
+.yellow {
+  border-left: 0.25rem solid var(--accent-yellow);
+}
+
+.yellow:hover {
+  border-color: var(--accent-yellow);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.categoryDot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.orange .categoryDot {
+  background: var(--accent-orange);
+}
+
+.green .categoryDot {
+  background: var(--accent-green);
+}
+
+.yellow .categoryDot {
+  background: var(--accent-yellow);
+}
+
+.label {
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+}
+
+.title {
+  font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: var(--space-xs);
+}
+
+.category {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  color: var(--accent-green);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.description {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: auto;
+  padding-top: var(--space-md);
+  list-style: none;
+}
+
+.tag {
+  padding: 0.2rem 0.5rem;
+  background: var(--bg-raised);
+  border: 0.0625rem solid var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dim);
+}

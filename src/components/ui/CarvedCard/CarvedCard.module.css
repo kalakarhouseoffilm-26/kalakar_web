@@ -1,0 +1,45 @@
+.card {
+  position: relative;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(145deg, #282116, #15130f);
+  border: 1px solid #66543b;
+  clip-path: polygon(
+    0 9px,
+    9px 9px,
+    9px 0,
+    calc(100% - 12px) 0,
+    calc(100% - 12px) 7px,
+    100% 7px,
+    100% calc(100% - 11px),
+    calc(100% - 8px) calc(100% - 11px),
+    calc(100% - 8px) 100%,
+    11px 100%,
+    11px calc(100% - 7px),
+    0 calc(100% - 7px)
+  );
+  box-shadow: inset 0 0 40px #0008;
+}
+.card span {
+  color: var(--color-ember);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+}
+.card h3 {
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+  margin: 0.65rem 0 1rem;
+}
+.card div {
+  color: #cfc5b5;
+}
+.card ul {
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
+}
+.card li:before {
+  content: '◆';
+  color: var(--color-moss);
+  font-size: 0.55em;
+  margin-right: 0.65rem;
+}

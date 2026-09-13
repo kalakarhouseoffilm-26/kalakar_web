@@ -1,0 +1,387 @@
+.track {
+  position: relative;
+  height: 170vh;
+  background-color: #040604;
+  z-index: 10;
+}
+
+.stickyViewport {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #040604;
+}
+
+/* ===== LAYER 1: BACKGROUND ===== */
+.bgLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  transform-origin: center center;
+}
+
+.bgImg {
+  object-fit: cover;
+  object-position: center 30%;
+}
+
+/* 57% black overlay */
+.darkOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: #000000;
+  opacity: 0.57;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.bgVignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 50%,
+    transparent 40%,
+    rgba(3, 5, 3, 0.6) 80%,
+    rgba(2, 4, 2, 0.92) 100%
+  );
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* ===== LAYER 2: CAVEMAN & TITLE (MIDGROUND) ===== */
+.midLayer,
+.midLayerStatic {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Caveman with camera: aligned flush to left: 0, sized +4px larger with subtle breathing motion */
+.cavemanWrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: clamp(295px, 34.5vw, 535px);
+  max-height: 84vh;
+  display: flex;
+  align-items: flex-end;
+  pointer-events: none;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.9));
+}
+
+.cavemanMotionWrap {
+  width: 100%;
+  height: 100%;
+  transform-origin: bottom left;
+  animation: cavemanBreathe 6.5s ease-in-out infinite;
+}
+
+@keyframes cavemanBreathe {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  32% {
+    transform: translate(2px, -6px) rotate(0.4deg);
+  }
+  68% {
+    transform: translate(-1px, -3px) rotate(-0.3deg);
+  }
+}
+
+.cavemanImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: bottom left;
+}
+
+/* Title & Subtext (Right, closer to center) */
+.titleWrap {
+  position: absolute;
+  top: 48%;
+  right: clamp(7vw, 12vw, 19vw);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.9));
+  z-index: 22;
+}
+
+.titleInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: clamp(280px, 36vw, 560px);
+}
+
+.titleImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.96;
+}
+
+/* Subtext: Yellow, max-width 50% under title, clean spacing without excessive character gaps */
+.subtextContainer {
+  width: 100%;
+  margin-top: 0.6rem;
+  padding-inline: 0.25rem;
+  display: flex;
+  justify-content: flex-end; /* Aligns under AKAR on right half of KALAKAR matching deck */
+}
+
+.subtextTitle {
+  max-width: 50%;
+  font-family: var(--font-body), 'Montserrat', sans-serif;
+  font-size: clamp(0.85rem, 1.15vw, 1.1rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #FFD233;
+  text-shadow:
+    0 0 16px rgba(255, 210, 51, 0.65),
+    0 2px 4px rgba(0, 0, 0, 0.95),
+    0 4px 12px rgba(0, 0, 0, 0.9);
+  user-select: none;
+  white-space: nowrap;
+}
+
+/* ===== FRONT LAYER: FOREGROUND LEAVES ===== */
+.foregroundLeaf {
+  position: absolute;
+  z-index: 25;
+  pointer-events: none;
+  filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95));
+}
+
+.leftForegroundLeaf {
+  bottom: -6%;
+  left: -5%;
+  width: clamp(260px, 32vw, 500px);
+  transform-origin: bottom left;
+}
+
+.rightForegroundLeaf {
+  bottom: -9%;
+  right: -6%;
+  width: clamp(240px, 28vw, 460px);
+  transform-origin: bottom right;
+}
+
+/* Ambient organic movement for front leaves (breathing breeze effect) */
+.leafAmbientWrapLeft {
+  width: 100%;
+  height: 100%;
+  animation: ambientSwayLeft 6.5s ease-in-out infinite alternate;
+}
+
+.leafAmbientWrapRight {
+  width: 100%;
+  height: 100%;
+  animation: ambientSwayRight 7.2s ease-in-out infinite alternate;
+}
+
+@keyframes ambientSwayLeft {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(10px, -14px) rotate(2.2deg);
+  }
+  100% {
+    transform: translate(-6px, 8px) rotate(-1.5deg);
+  }
+}
+
+@keyframes ambientSwayRight {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  50% {
+    transform: translate(-10px, -15px) rotate(-2.4deg);
+  }
+  100% {
+    transform: translate(8px, 6px) rotate(1.6deg);
+  }
+}
+
+.leafImg {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Seamless bottom blend gradient into Section 2 */
+.bottomBlendGradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: clamp(140px, 22vh, 280px);
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(4, 6, 4, 0.4) 35%,
+    rgba(4, 6, 4, 0.85) 75%,
+    #040604 100%
+  );
+  pointer-events: none;
+  z-index: 22;
+}
+
+/* ===== SCROLL CUE ===== */
+.scrollCue {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+
+.scrollCueText {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-stone);
+  opacity: 0.8;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 2.75rem;
+  background: linear-gradient(
+    to bottom,
+    rgba(201, 185, 154, 0.8),
+    rgba(255, 210, 51, 0.6),
+    transparent
+  );
+  animation: scrollLineDrop 2.2s ease-in-out infinite;
+  transform-origin: top center;
+}
+
+@keyframes scrollLineDrop {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  35% {
+    opacity: 1;
+  }
+  75% {
+    transform: scaleY(1);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scaleY(1) translateY(6px);
+    opacity: 0;
+  }
+}
+
+/* ===== MOBILE ADAPTATIONS ===== */
+@media (max-width: 900px) {
+  .cavemanWrap {
+    left: 0;
+    width: clamp(250px, 42vw, 400px);
+    max-height: 68vh;
+  }
+
+  .titleWrap {
+    right: 3vw;
+    top: 38%;
+  }
+
+  .titleInner {
+    width: clamp(240px, 42vw, 380px);
+  }
+}
+
+@media (max-width: 640px) {
+  .track {
+    height: 140vh;
+  }
+
+  .cavemanWrap {
+    left: 0;
+    bottom: 0;
+    width: min(65vw, 270px);
+    max-height: 44vh;
+    z-index: 15;
+  }
+
+  /* User requested: on mobile view make title Kalakar center of the screen */
+  .titleWrap {
+    top: 50%;
+    left: 50%;
+    right: auto;
+    transform: translate(-50%, -50%);
+    align-items: center;
+    z-index: 22;
+  }
+
+  .titleInner {
+    width: min(80vw, 320px);
+    align-items: center;
+  }
+
+  .titleImg {
+    width: 100%;
+  }
+
+  /* User requested: subtext max-width 50% without excessive spacing */
+  .subtextContainer {
+    width: 100%;
+    margin-top: 0.6rem;
+    padding-inline: 0.2rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .subtextTitle {
+    max-width: 60%;
+    font-size: clamp(0.72rem, 3.4vw, 0.88rem);
+    letter-spacing: 0.12em;
+  }
+
+  /* Tropical foreground leaves framing bottom corners */
+  .leftForegroundLeaf {
+    width: clamp(200px, 56vw, 300px);
+    left: -14%;
+    bottom: -4%;
+    z-index: 25;
+  }
+
+  .rightForegroundLeaf {
+    width: clamp(200px, 56vw, 300px);
+    right: -14%;
+    bottom: -4%;
+    z-index: 25;
+  }
+
+  .scrollCue {
+    bottom: 1.25rem;
+  }
+}

@@ -1,0 +1,19 @@
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.markImg {
+  width: 2.6rem;
+  height: 2.6rem;
+  object-fit: contain;
+  transition: transform 0.25s ease, filter 0.25s ease;
+  opacity: 0.95;
+}
+
+.logo:hover .markImg {
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 10px rgba(232, 98, 44, 0.5));
+}
