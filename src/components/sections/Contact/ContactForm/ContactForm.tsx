@@ -55,7 +55,7 @@ export function ContactForm() {
                 type="tel"
                 value={data.phone}
                 onChange={(value) => update('phone', value)}
-                placeholder="+91 963328074"
+                placeholder="+91 9633328074"
                 error={errors.phone}
               />
               <div className={styles.selectGroup}>

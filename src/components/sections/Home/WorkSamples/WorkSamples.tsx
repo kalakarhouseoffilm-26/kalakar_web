@@ -31,7 +31,7 @@ export function WorkSamples() {
                 rel="noopener noreferrer"
                 className={styles.externalLinkBtn}
               >
-                Open in Adobe Portfolio
+                Explore our portfolio
                 <svg
                   width="14"
                   height="14"
@@ -52,8 +52,8 @@ export function WorkSamples() {
           </FadeIn>
         </div>
 
-        {/* Photorealistic Browser Frame around Adobe Portfolio Iframe */}
-        <FadeIn delay={0.3} className={styles.browserFrameWrap}>
+        {/* Photorealistic Browser Frame around Adobe Portfolio Live Iframe */}
+        <FadeIn delay={0.3} className={styles.browserFrameWrap} data-lenis-prevent>
           <div className={styles.browserChrome}>
             <div className={styles.windowControls} aria-hidden="true">
               <span className={`${styles.controlDot} ${styles.dotRed}`} />
@@ -77,7 +77,7 @@ export function WorkSamples() {
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                 <path d="M7 11V7a5 5 0 0 1 10 0v4" />
               </svg>
-              <span className={styles.addressText}>kalakar.myportfolio.com</span>
+              <span className={styles.addressText}>kalakarhouseoffilm.myportfolio.com</span>
             </div>
 
             <a
@@ -91,42 +91,16 @@ export function WorkSamples() {
             </a>
           </div>
 
-          <div className={styles.iframeContainer}>
-            <div className={styles.showcaseBackdrop}>
-              <div className={styles.showcaseInner}>
-                <span className={styles.showcaseTag}>FEATURED WORK</span>
-                <h3 className={styles.showcaseHeading}>KALAKAR SHOWCASE</h3>
-                <p className={styles.showcaseDesc}>
-                  Explore our portfolio of cinematic brand films, creative direction, photography, and identity systems.
-                </p>
-                <div className={styles.categoryPills}>
-                  <span className={styles.pill}>🎬 Cinematic Films</span>
-                  <span className={styles.pill}>🎨 Visual Identity</span>
-                  <span className={styles.pill}>📸 Photography</span>
-                  <span className={styles.pill}>✨ Motion Graphics</span>
-                </div>
-                <a
-                  href={site.adobePortfolioUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.showcaseCtaBtn}
-                >
-                  Open in Adobe Portfolio ↗
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <div className={styles.fallbackNotice}>
-            <span>Looking for full case studies?</span>
-            <a
-              href={site.adobePortfolioUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.fallbackLink}
-            >
-              Open kalakar.myportfolio.com directly ↗
-            </a>
+          <div className={styles.iframeContainer} data-lenis-prevent>
+            <iframe
+              src={site.adobePortfolioUrl}
+              title="KALAKAR House of Film Portfolio Showcase"
+              className={styles.portfolioIframe}
+              scrolling="yes"
+              data-lenis-prevent
+              loading="eager"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            />
           </div>
         </FadeIn>
       </div>

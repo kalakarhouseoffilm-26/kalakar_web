@@ -319,7 +319,7 @@
   }
 }
 
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .track {
     height: 140vh;
   }
@@ -338,9 +338,9 @@
     z-index: 15;
   }
 
-  /* User requested: The title can be some more above ~30% from top */
+  /* Moved 1% above to top (26%) and reduced width */
   .titleWrap {
-    top: 27%;
+    top: 26%;
     left: 50%;
     right: auto;
     transform: translate(-50%, -10%);
@@ -349,7 +349,7 @@
   }
 
   .titleInner {
-    width: min(92vw, 420px);
+    width: min(80vw, 340px);
     align-items: center;
   }
 
@@ -358,19 +358,21 @@
     height: auto;
   }
 
-  /* Subtext */
+  /* Subtext: width 50% and right-to-left alignment as in web */
   .subtextContainer {
     width: 100%;
-    margin-top: 0.6rem;
+    margin-top: 0.5rem;
     padding-inline: 0.2rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
   }
 
   .subtextTitle {
-    max-width: 85%;
-    font-size: clamp(1rem, 4.5vw, 1.3rem);
-    letter-spacing: 0.16em;
+    width: 50%;
+    max-width: 50%;
+    text-align: right;
+    font-size: clamp(0.72rem, 3.2vw, 0.95rem);
+    letter-spacing: 0.14em;
     font-weight: 800;
   }
 
