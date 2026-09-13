@@ -72,22 +72,38 @@ export function ServicesPreview() {
 
           {/* LEFT COLUMN: Exactly 3 lines: WHAT / WE DO. / Our Services */}
           <div className={styles.leftColumn}>
-            <motion.div
-              initial={reducedMotion ? false : { opacity: 0, x: -32 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: '-10%' }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className={styles.leftContent}
-            >
-              <h2 className={styles.mainTitle}>
+            <div className={styles.leftContent}>
+              <motion.h2
+                className={styles.mainTitle}
+                initial={
+                  reducedMotion
+                    ? false
+                    : { opacity: 0, scale: 1.16, filter: 'blur(16px)' }
+                }
+                whileInView={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.95, ease: [0.16, 1, 0.3, 1], delay: 0.06 }}
+              >
                 <span className={styles.whatGreen}>WHAT</span>
                 <span className={styles.weDoLine}>
                   <span className={styles.weGreen}>WE </span>
                   <span className={styles.doRed}>DO.</span>
                 </span>
-              </h2>
-              <span className={styles.subtitleScript}>Our Services</span>
-            </motion.div>
+              </motion.h2>
+              <motion.span
+                className={styles.subtitleScript}
+                initial={
+                  reducedMotion
+                    ? false
+                    : { opacity: 0, y: -10, filter: 'blur(8px)' }
+                }
+                whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                viewport={{ once: true, margin: '-8%' }}
+                transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              >
+                Our Services
+              </motion.span>
+            </div>
           </div>
 
           {/* RIGHT COLUMN: 3.png hanging frames anchored to the top + 4 parchment content boxes */}
@@ -141,6 +157,9 @@ export function ServicesPreview() {
           className={styles.foregroundImg}
         />
       </div>
+
+      {/* Seamless bottom blur gradient into Section Our Work */}
+      <div className={styles.bottomBlurGradient} aria-hidden="true" />
     </section>
   )
 }

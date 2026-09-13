@@ -55,6 +55,16 @@
 
 .titleAccent {
   color: var(--color-ember);
+  animation: titleAccentPulse 4s ease-in-out infinite alternate;
+}
+
+@keyframes titleAccentPulse {
+  0% {
+    filter: drop-shadow(0 0 8px rgba(232, 98, 44, 0.3));
+  }
+  100% {
+    filter: drop-shadow(0 0 24px rgba(232, 98, 44, 0.75));
+  }
 }
 
 .actions {
@@ -79,12 +89,13 @@
   text-decoration: none;
   box-shadow: 0 4px 22px rgba(37, 211, 102, 0.35);
   transition: all 0.25s ease;
+  animation: pulseGlowWhatsapp 4s ease-in-out infinite;
 }
 
 .whatsappBtn:hover {
   background: #20bd5a;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.65);
 }
 
 .instagramBtn {
@@ -102,12 +113,35 @@
   text-decoration: none;
   box-shadow: 0 4px 22px rgba(225, 48, 108, 0.35);
   transition: all 0.25s ease;
+  animation: pulseGlowInstagram 4s ease-in-out 1.2s infinite;
 }
 
 .instagramBtn:hover {
   filter: brightness(1.1);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 28px rgba(225, 48, 108, 0.55);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(225, 48, 108, 0.65);
+}
+
+@keyframes pulseGlowWhatsapp {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(37, 211, 102, 0.6), 0 0 16px rgba(37, 211, 102, 0.35);
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes pulseGlowInstagram {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(225, 48, 108, 0.35);
+    transform: translateY(0);
+  }
+  50% {
+    box-shadow: 0 8px 28px rgba(225, 48, 108, 0.6), 0 0 16px rgba(225, 48, 108, 0.35);
+    transform: translateY(-2px);
+  }
 }
 
 .glow {
@@ -120,11 +154,56 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(232, 98, 44, 0.1) 0%,
+    rgba(232, 98, 44, 0.14) 0%,
+    rgba(37, 211, 102, 0.05) 45%,
     transparent 65%
   );
   pointer-events: none;
   z-index: 0;
+  animation: ambientGlowPulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes ambientGlowPulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1.15);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .root {
+    min-height: auto;
+    padding-block: clamp(3.2rem, 7.5vh, 4.4rem);
+  }
+
+  .title {
+    font-size: clamp(2.8rem, 9.5vw, 4rem);
+    line-height: 0.95;
+  }
+
+  .subtitle {
+    font-size: clamp(1rem, 3.6vw, 1.15rem);
+    color: rgba(245, 241, 232, 0.92);
+    line-height: 1.55;
+  }
+
+  .actions {
+    width: 100%;
+    max-width: 320px;
+    gap: 0.9rem;
+  }
+
+  .whatsappBtn,
+  .instagramBtn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.9rem 1.6rem;
+    font-size: 0.9rem;
+  }
 }
 
 @media (min-width: 640px) {

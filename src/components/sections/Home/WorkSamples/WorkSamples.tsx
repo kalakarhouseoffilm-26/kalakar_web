@@ -92,25 +92,40 @@ export function WorkSamples() {
           </div>
 
           <div className={styles.iframeContainer}>
-            <iframe
-              src={site.adobePortfolioUrl}
-              title="KALAKAR Creative Portfolio"
-              className={styles.portfolioIframe}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-            />
+            <div className={styles.showcaseBackdrop}>
+              <div className={styles.showcaseInner}>
+                <span className={styles.showcaseTag}>FEATURED WORK</span>
+                <h3 className={styles.showcaseHeading}>KALAKAR SHOWCASE</h3>
+                <p className={styles.showcaseDesc}>
+                  Explore our portfolio of cinematic brand films, creative direction, photography, and identity systems.
+                </p>
+                <div className={styles.categoryPills}>
+                  <span className={styles.pill}>🎬 Cinematic Films</span>
+                  <span className={styles.pill}>🎨 Visual Identity</span>
+                  <span className={styles.pill}>📸 Photography</span>
+                  <span className={styles.pill}>✨ Motion Graphics</span>
+                </div>
+                <a
+                  href={site.adobePortfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={styles.showcaseCtaBtn}
+                >
+                  Open in Adobe Portfolio ↗
+                </a>
+              </div>
+            </div>
           </div>
 
           <div className={styles.fallbackNotice}>
-            <span>Works not loading in frame?</span>
+            <span>Looking for full case studies?</span>
             <a
               href={site.adobePortfolioUrl}
               target="_blank"
               rel="noopener noreferrer"
               className={styles.fallbackLink}
             >
-              Click here to view directly on Adobe Portfolio ↗
+              Open kalakar.myportfolio.com directly ↗
             </a>
           </div>
         </FadeIn>

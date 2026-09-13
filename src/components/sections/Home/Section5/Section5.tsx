@@ -9,6 +9,9 @@ export function Section5() {
   return (
     <section className={styles.root} id="artist" aria-label="Kalaakaran Vannallo - The Artist is Here">
       <div className={styles.stage}>
+        {/* Top blend gradient for seamless transition from previous section */}
+        <div className={styles.topBlendGradient} aria-hidden="true" />
+
         {/* Layer 1: Background Cave Canvas */}
         <div className={styles.bgLayer}>
           <Image

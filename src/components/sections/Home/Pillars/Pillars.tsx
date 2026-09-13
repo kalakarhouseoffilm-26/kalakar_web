@@ -2,6 +2,7 @@
 
 import React from 'react'
 import Image from 'next/image'
+import { motion } from 'framer-motion'
 import { usePillars } from './usePillars'
 import styles from './Pillars.module.css'
 
@@ -53,25 +54,62 @@ export function Pillars() {
         <div className={`container ${styles.mobileInner}`}>
           {/* Header */}
           <div className={styles.mobileHeader}>
-            <div className={styles.carvedBadgeWrap}>
+            <motion.div
+              className={styles.carvedBadgeWrap}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-5%' }}
+              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            >
               <span className={styles.carvedBadge}>Who We Are</span>
-            </div>
-            <h2 className={styles.carvedTitle}>
+            </motion.div>
+            <motion.h2
+              className={styles.carvedTitle}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-5%' }}
+              transition={{ duration: 0.55, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+            >
               A Creative Media Agency Built For Impact
-            </h2>
-            <p className={styles.carvedLead}>
+            </motion.h2>
+            <motion.p
+              className={styles.carvedLead}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-5%' }}
+              transition={{ duration: 0.6, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+            >
               KALAKAR helps businesses build memorable brands through strategic
               thinking and powerful visual storytelling. We believe creativity
               should do more than look good — it should create connections,
               build trust, and drive growth.
-            </p>
+            </motion.p>
           </div>
 
           {/* Ancient Sunlit Stone Stele Cards with Carved Groove Conduit */}
           <div className={styles.timeline}>
-            <div className={styles.timelineGroove} aria-hidden="true" />
-            {pillars.map((pillar) => (
-              <div key={pillar.number} className={styles.pillarCard}>
+            <motion.div
+              className={styles.timelineGroove}
+              initial={{ opacity: 0, scaleY: 0, y: 24 }}
+              whileInView={{ opacity: 1, scaleY: 1, y: 0 }}
+              viewport={{ once: true, margin: '-6%' }}
+              transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1] }}
+              style={{ transformOrigin: 'top center' }}
+              aria-hidden="true"
+            />
+            {pillars.map((pillar, idx) => (
+              <motion.div
+                key={pillar.number}
+                className={styles.pillarCard}
+                initial={{ opacity: 0, y: 36, x: -14 }}
+                whileInView={{ opacity: 1, y: 0, x: 0 }}
+                viewport={{ once: true, margin: '-6%' }}
+                transition={{
+                  duration: 0.55,
+                  delay: idx * 0.16,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+              >
                 <div className={styles.pillarNumeral}>
                   <span className={styles.numeralText}>{pillar.number}</span>
                 </div>
@@ -79,7 +117,7 @@ export function Pillars() {
                   <h3 className={styles.pillarTitle}>{pillar.title}</h3>
                   <p className={styles.pillarDesc}>{pillar.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

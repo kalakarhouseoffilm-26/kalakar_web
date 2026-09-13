@@ -10,7 +10,7 @@
 !.yarn/releases
 !.yarn/versions
 
-# testing
+# testing & coverage
 /coverage
 
 # next.js
@@ -19,19 +19,25 @@
 
 # production
 /build
+/dist
 
-# misc
+# misc & OS
 .DS_Store
+**/.DS_Store
+Thumbs.db
 *.pem
+*.tmp
 
-# debug
+# debug & logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
+*.log
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -39,3 +45,19 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDEs and editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# AI / Dev agent metadata & scratch directories
+.devin/
+scratch/
+chrome-profile/
+.turbo/
+.eslintcache
+

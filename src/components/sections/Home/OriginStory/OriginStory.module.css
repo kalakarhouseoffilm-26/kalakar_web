@@ -282,18 +282,32 @@
 
 /* Mobile Responsiveness for Row 1 Stage */
 @media (max-width: 1023px) {
+  .root {
+    min-height: auto;
+    justify-content: flex-start;
+    background: #0d0d0b;
+  }
+
   .stage {
     min-height: auto;
     flex-direction: column;
     justify-content: flex-start;
     background: #0d0d0b;
+    padding-bottom: clamp(3rem, 7vh, 5rem);
   }
 
   .stageBase {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    height: auto;
+    height: clamp(380px, 54vh, 500px);
+    aspect-ratio: auto;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 62%, rgba(0, 0, 0, 0) 100%);
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1) 62%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  .stageBaseImg {
+    object-fit: cover;
+    object-position: 12% top;
   }
 
   .stageGradientRight {
@@ -302,18 +316,31 @@
 
   .stageContentWrap {
     justify-content: flex-start;
-    padding-top: 1.5rem;
+    margin-top: -26%;
+    position: relative;
+    z-index: 5;
+    padding-top: 0;
     padding-inline: clamp(1.25rem, 5vw, 2.5rem);
   }
 
   .stageContent {
     max-width: 100%;
-    gap: 1rem;
+    gap: 1.15rem;
   }
 
   .storyTitle {
-    font-size: clamp(2.6rem, 9vw, 3.8rem);
-    line-height: 0.95;
+    font-size: clamp(3.2rem, 11vw, 4.6rem);
+    line-height: 0.92;
+  }
+
+  .eyebrow {
+    font-size: clamp(1.05rem, 4vw, 1.25rem);
+  }
+
+  .storyBody,
+  .missionText {
+    font-size: clamp(1.05rem, 3.8vw, 1.2rem);
+    line-height: 1.68;
   }
 
   .stageBottomLeftLeaf {

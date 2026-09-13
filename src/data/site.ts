@@ -17,10 +17,10 @@ export const site = {
     'KALAKAR is an Indian creative agency solving problems through branding, cinematic content and innovative marketing. We transform businesses into unforgettable brands.',
   url: 'https://kalakar.studio',
   email: 'hello@kalakar.studio',
-  phone: '+91 98765 43210',
-  phoneRaw: '+919876543210',
-  whatsapp: '+91 98765 43210',
-  whatsappRaw: '919876543210',
+  phone: '+91 963328074',
+  phoneRaw: '+91963328074',
+  whatsapp: '+91 963328074',
+  whatsappRaw: '91963328074',
   address: '12 Reel Street, Film Nagar, Mumbai 400001, India',
   companyName: 'KALAKAR Media Pvt. Ltd.',
   copyright: `© ${new Date().getFullYear()} KALAKAR Media Pvt. Ltd.`,
@@ -34,12 +34,12 @@ export const site = {
   adobePortfolioUrl:
     process.env.NEXT_PUBLIC_ADOBE_PORTFOLIO_URL || 'https://kalakar.myportfolio.com',
   whatsappUrl:
-    'https://wa.me/919876543210?text=' +
+    'https://wa.me/91963328074?text=' +
     encodeURIComponent("Hi KALAKAR! I'd like to discuss a project with your agency."),
-  instagramUrl: 'https://instagram.com/kalakar',
+  instagramUrl: 'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==',
   socials: [
-    { label: 'Instagram', href: 'https://instagram.com/kalakar' },
-    { label: 'WhatsApp', href: 'https://wa.me/919876543210' },
+    { label: 'Instagram', href: 'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==' },
+    { label: 'WhatsApp', href: 'https://wa.me/91963328074' },
     { label: 'YouTube', href: 'https://youtube.com/@kalakar' },
     { label: 'LinkedIn', href: 'https://linkedin.com/company/kalakar' },
   ],

@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
 import { Bebas_Neue, Montserrat, Noto_Sans_Malayalam } from 'next/font/google'
 import './globals.css'
 import { site } from '@/data/site'
@@ -26,6 +27,12 @@ const notoSansMalayalam = Noto_Sans_Malayalam({
   variable: '--font-malayalam-noto',
   display: 'swap',
   weight: ['500', '700'],
+})
+
+const chilanka = localFont({
+  src: '../../public/fonts/chilanka-regular.ttf',
+  variable: '--font-chilanka',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
@@ -68,7 +75,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${bebasNeue.variable} ${notoSansMalayalam.variable}`}
+      className={`${montserrat.variable} ${bebasNeue.variable} ${notoSansMalayalam.variable} ${chilanka.variable}`}
     >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />

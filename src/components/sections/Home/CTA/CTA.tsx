@@ -15,7 +15,7 @@ export function CTA() {
             style={{
               fontFamily: 'var(--font-malayalam)',
               color: 'var(--color-ember)',
-              fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
+              fontSize: 'clamp(1.22rem, 2.7vw, 1.65rem)',
               fontWeight: 600,
             }}
           >

@@ -41,8 +41,16 @@
   --font-display:
     var(--font-bebas), 'Bebas Neue', Impact, system-ui, sans-serif;
   --font-malayalam:
-    var(--font-malayalam-noto), 'Noto Sans Malayalam', var(--font-body);
+    var(--font-chilanka), 'Chilanka', var(--font-malayalam-noto), 'Noto Sans Malayalam', var(--font-body);
   --font-script: 'Black Matteo', cursive, sans-serif;
+}
+
+@font-face {
+  font-family: 'Chilanka';
+  src: url('/fonts/chilanka-regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
