@@ -20,7 +20,7 @@ export const site = {
   phone: '+91 9633328074',
   phoneRaw: '+919633328074',
   whatsapp: '+91 9633328074',
-  whatsappRaw: '919633328074',
+  whatsappRaw: '+91 9633328074',
   address: '12 Reel Street, Film Nagar, Mumbai 400001, India',
   companyName: 'KALAKAR Media Pvt. Ltd.',
   copyright: `© ${new Date().getFullYear()} KALAKAR Media Pvt. Ltd.`,
@@ -32,14 +32,21 @@ export const site = {
     { label: 'Contact', href: '#contact' },
   ],
   adobePortfolioUrl:
-    process.env.NEXT_PUBLIC_ADOBE_PORTFOLIO_URL || 'https://kalakarhouseoffilm.myportfolio.com/',
+    process.env.NEXT_PUBLIC_ADOBE_PORTFOLIO_URL ||
+    'https://kalakarhouseoffilm.myportfolio.com/',
   whatsappUrl:
-    'https://wa.me/919633328074?text=' +
-    encodeURIComponent("Hi KALAKAR! I'd like to discuss a project with your agency."),
-  instagramUrl: 'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==',
+    'https://wa.me/9633328074?text=' +
+    encodeURIComponent(
+      "Hi KALAKAR! I'd like to discuss a project with your agency."
+    ),
+  instagramUrl:
+    'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==',
   socials: [
-    { label: 'Instagram', href: 'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==' },
-    { label: 'WhatsApp', href: 'https://wa.me/919633328074' },
+    {
+      label: 'Instagram',
+      href: 'https://www.instagram.com/p/Da3F-XngdKI/?stkn=MXJhaGRtOXV3YThiNQ==',
+    },
+    { label: 'WhatsApp', href: 'https://wa.me/9633328074' },
     { label: 'Portfolio', href: 'https://kalakarhouseoffilm.myportfolio.com/' },
     { label: 'YouTube', href: 'https://youtube.com/@kalakar' },
     { label: 'LinkedIn', href: 'https://linkedin.com/company/kalakar' },
@@ -72,4 +79,3 @@ export const contactActions: ContactChannel[] = [
     action: 'Email',
   },
 ]
-
