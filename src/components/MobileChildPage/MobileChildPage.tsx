@@ -25,29 +25,6 @@ export function MobileChildPage({
   return (
     <div className={styles.mobileOnly}>
       <main className={styles.filmScreen}>
-        {/* Back Button positioned below navbar at top left */}
-        <button
-          type="button"
-          onClick={() => router.back()}
-          className={styles.backBtn}
-          aria-label="Back to home"
-        >
-          <svg
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            aria-hidden="true"
-          >
-            <polyline points="15 18 9 12 15 6" />
-          </svg>
-          <span>Back</span>
-        </button>
-
         {/* Black-to-green base background (responsive fill) */}
         <div className={styles.baseGradient} aria-hidden="true" />
 

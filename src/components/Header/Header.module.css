@@ -40,6 +40,26 @@
   gap: 0.6rem;
 }
 
+.headerBackBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: #ffc800;
+  cursor: pointer;
+  padding: 0;
+  margin-left: -8px;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.headerBackBtn:active {
+  opacity: 0.7;
+  transform: scale(0.95);
+}
+
 .mobileInstagramBtn {
   display: inline-flex;
   align-items: center;

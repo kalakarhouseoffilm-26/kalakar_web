@@ -22,7 +22,30 @@ export function Header() {
       className={`${styles.header} ${isScrolled ? styles.headerScrolled : styles.headerTransparent}`}
     >
       <div className={`container ${styles.inner}`}>
-        <Logo />
+        {isChildPage ? (
+          <button
+            type="button"
+            onClick={() => router.back()}
+            className={styles.headerBackBtn}
+            aria-label="Back to previous page"
+          >
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+        ) : (
+          <Logo />
+        )}
         <div className={styles.mobileRightActions}>
           <a
             href={site.instagramUrl}
