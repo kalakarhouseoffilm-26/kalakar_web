@@ -1,0 +1,101 @@
+.filmsPage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background: #020202;
+  color: #ffffff;
+  padding-top: 5rem;
+}
+
+.heroSection {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  text-align: center;
+  background: radial-gradient(circle at 50% 30%, rgba(235, 128, 19, 0.15), transparent 70%);
+}
+
+.kicker {
+  display: inline-block;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #eb8013;
+  margin-bottom: 0.75rem;
+}
+
+.heading {
+  font-family: var(--font-bebas), 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(3.5rem, 8vw, 6.5rem);
+  color: #ffc800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+}
+
+.subheading {
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  color: rgba(245, 241, 232, 0.8);
+  max-width: 55ch;
+  margin-inline: auto;
+  line-height: 1.6;
+}
+
+.mobileIframeWrapper {
+  width: 100%;
+  height: clamp(340px, 60vh, 520px);
+  max-height: 60vh;
+  border-radius: 20px;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-top: 10px;
+  position: relative;
+  z-index: 15;
+  touch-action: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobileIframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: transparent;
+  pointer-events: auto;
+  touch-action: auto;
+}
+
+.viewMoreWrap {
+  margin-top: 14px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.viewMoreLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #ffc800;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1.5px solid rgba(255, 200, 0, 0.5);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.viewMoreLink:hover,
+.viewMoreLink:focus-visible {
+  color: #eb8013;
+  border-bottom-color: #eb8013;
+  transform: translateX(2px);
+}
+
+.viewMoreLink:active {
+  transform: scale(0.98);
+}

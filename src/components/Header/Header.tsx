@@ -1,10 +1,15 @@
 'use client'
+import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { Logo } from '@/components/ui/Logo'
 import { site } from '@/data/site'
 import { useHeader } from './useHeader'
 import styles from './Header.module.css'
 
 export function Header() {
+  const pathname = usePathname()
+  const router = useRouter()
+  const isChildPage = pathname !== '/' && pathname !== ''
   const { isOpen, isScrolled, activeSection, toggle, close, menuRef, toggleRef } = useHeader()
 
   function isActive(href: string) {
@@ -20,6 +25,29 @@ export function Header() {
         <Logo />
         <div className={styles.mobileRightActions}>
           <a
+            href={site.instagramUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.mobileInstagramBtn}
+            aria-label="Follow KALAKAR on Instagram"
+          >
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          </a>
+          <a
             href={site.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -27,8 +55,8 @@ export function Header() {
             aria-label="Direct WhatsApp message"
           >
             <svg
-              width="27"
-              height="27"
+              width="26"
+              height="26"
               viewBox="0 0 24 24"
               fill="none"
               aria-hidden="true"
@@ -47,19 +75,6 @@ export function Header() {
               />
             </svg>
           </a>
-          <button
-            ref={toggleRef}
-            type="button"
-            className={styles.toggle}
-            onClick={toggle}
-            aria-expanded={isOpen}
-            aria-controls="primary-navigation"
-            aria-label="Toggle navigation menu"
-          >
-            <span className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} aria-hidden="true" />
-            <span className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} aria-hidden="true" />
-            <span className={`${styles.bar} ${isOpen ? styles.barOpen : ''}`} aria-hidden="true" />
-          </button>
         </div>
         <nav
           id="primary-navigation"

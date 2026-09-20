@@ -298,7 +298,7 @@
 /* ===== MOBILE ADAPTATIONS ===== */
 @media (max-width: 768px) {
   .section {
-    min-height: clamp(695px, 97vh, 857px);
+    min-height: 100dvh;
     padding-top: clamp(5.8rem, 12vh, 7.2rem);
     padding-bottom: clamp(1.2rem, 3vh, 2rem);
     justify-content: flex-start;

@@ -1,0 +1,394 @@
+/* Mobile Experience Styles (Strictly < 768px, responsive up to 769 x 1498) */
+.mobileContainer {
+  position: relative;
+  width: 100%;
+  background: #020202;
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+}
+
+/* =========================================================
+   SCREEN 1: Mobile Hero / Brand Banner
+   ========================================================= */
+.heroSection {
+  position: relative;
+  width: 100%;
+  min-height: 100dvh;
+  background: #071c08;
+  overflow: visible;
+}
+
+/* Ambient glow matching Figma */
+.heroAmbientGlow {
+  position: absolute;
+  width: min(944px, 200vw);
+  height: min(395px, 60vh);
+  left: -25%;
+  top: -15%;
+  background: #1d5d20;
+  transform: rotate(10deg);
+  transform-origin: top left;
+  box-shadow: 187px 187px 187px rgba(29, 93, 32, 0.4);
+  filter: blur(94px);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dark vignette overlay */
+.heroVignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #020202;
+  opacity: 0.42;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Header Logo */
+.heroLogoWrapper {
+  position: absolute;
+  top: clamp(80px, 14dvh, 140px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(337px, 84vw);
+  height: clamp(75px, 12dvh, 115px);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.heroLogoImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.8));
+}
+
+/* Tagline 'HOUse of Films' */
+.heroTagline {
+  position: absolute;
+  left: min(62%, calc(43% + 40px));
+  top: clamp(170px, 28dvh, 265px);
+  color: #ffc800;
+  font-size: clamp(26px, 4.5vw, 36px);
+  font-family: var(--font-bebas), 'Bebas Neue', Impact, sans-serif;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  z-index: 11;
+  text-shadow: 0 4px 15px rgba(0, 0, 0, 0.9);
+  white-space: nowrap;
+}
+
+/* Cave man 1 pinned at left: 0, bottom: 0 with zoom-in entrance */
+.heroCavemanWrapper {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: clamp(280px, 48vh, 460px);
+  height: clamp(380px, 58vh, 620px);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.heroCavemanImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom left;
+  filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.9));
+}
+
+/* Base Shadow at bottom */
+.heroBottomShadow {
+  position: absolute;
+  width: 120%;
+  height: clamp(120px, 18vh, 200px);
+  left: -10%;
+  bottom: -20px;
+  background: black;
+  box-shadow: 33px 33px 33px rgba(0, 0, 0, 0.9);
+  filter: blur(16.5px);
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =========================================================
+   SEAM FOLIAGE: Positioned relative to heroSection (phone frame)
+   Strictly at top layer with z-index: 900
+   ========================================================= */
+.seamLeavesContainer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
+  pointer-events: none;
+}
+
+/* Leaf right Side 1.png:
+   left: 265.951px / 402px (~66.16%)
+   top: 821.340px / 874px (~93.97%)
+   width: 334.580px, height: 345.344px
+   transform: rotate(146.309deg), transform-origin: top left
+*/
+.seamLeafRightSide {
+  position: absolute;
+  left: clamp(230px, 66.16%, 510px);
+  top: clamp(700px, 93.97%, 1400px);
+  width: clamp(290px, 83.2vw, 335px);
+  height: clamp(300px, 85.9vw, 346px);
+  transform-origin: top left;
+  transform: rotate(146.309deg);
+  pointer-events: none;
+}
+
+/* —Pngtree—free vector big green leaf_9139719 1.png:
+   left: 183px / 402px (~45.52%)
+   top: 642.023px / 874px (~73.46%)
+   width: 392px, height: 392px
+   transform: rotate(-7.332deg), transform-origin: top left
+*/
+.seamLeafGreen {
+  position: absolute;
+  left: clamp(160px, 45.52%, 350px);
+  top: clamp(540px, 73.46%, 1100px);
+  width: clamp(340px, 97.5vw, 392px);
+  height: clamp(340px, 97.5vw, 392px);
+  transform-origin: top left;
+  transform: rotate(-7.332deg);
+  pointer-events: none;
+}
+
+.seamLeafImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* =========================================================
+   SCREEN 2: Dynamic Carousel Section
+   Exact User/Figma Gradient:
+   linear-gradient(#020202 0%, #071c08 35.14%, #989a92 63.93%, #fff 80%)
+   ========================================================= */
+.carouselSection {
+  position: relative;
+  width: 100%;
+  min-height: auto;
+  padding-top: 10px;
+  background: linear-gradient(#020202 0%, #071c08 35.14%, #989a92 63.93%, #ffffff 80%);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.carouselVignette {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 45%;
+  background: linear-gradient(180deg, rgba(2, 2, 2, 0.4) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Dynamic Big Heading ('OUr Films', 'ABout Us', 'CONtact Us')
+   Figma Title Spec:
+   x: 50, y: 110 (top: 110px, left aligned with card at x: 50)
+   Moves the whole section down cleanly and responsively
+*/
+.headingContainer {
+  position: relative;
+  width: min(303.37px, 86vw);
+  margin-top: clamp(65px, 12.5vh, 110px);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 17px;
+  z-index: 10;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.dynamicHeading {
+  font-family: var(--font-bebas), 'Bebas Neue', Impact, sans-serif;
+  font-size: clamp(64px, 11vh, 94px);
+  font-weight: 700;
+  line-height: 93.725%;
+  letter-spacing: 0;
+  text-align: left;
+  color: #ffc800;
+  text-transform: uppercase;
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+  margin: 0;
+}
+
+/* Carousel Track & Stage: positioned directly 17px below heading, fitting screen height */
+.carouselStage {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-bottom: clamp(6px, 1.5dvh, 16px);
+  touch-action: pan-y;
+  user-select: none;
+  z-index: 10;
+}
+
+/* Base card shell: exact Figma carousel-card matching background-color: #ffffff, border-radius: 23px, border: none, box-shadow: none */
+.card {
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 23px;
+  border: none;
+  box-shadow: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px clamp(18px, 2.8vh, 26px) 12px;
+  cursor: grab;
+  overflow: hidden;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+
+/* Active card: Figma width: 303.369px, height: 567px */
+.activeCard {
+  width: clamp(275px, 37vh, 303.37px);
+  height: clamp(470px, 65vh, 567px);
+}
+
+/* Side card: Figma width: 232px, height: 459px */
+.sideCard {
+  width: clamp(210px, 28vh, 232px);
+  height: clamp(380px, 53vh, 459px);
+  margin-top: clamp(16px, 3vh, 36px);
+}
+
+.card:active {
+  cursor: grabbing;
+}
+
+/* Card inner illustration frame matching Figma:
+   width: 279.896px; height: 388.011px;
+   margin: 15.617px 12px 0; border-radius: 23px; object-fit: cover;
+*/
+.cardImageContainer {
+  position: relative;
+  width: clamp(250px, 34vh, 279.9px);
+  height: clamp(260px, 44vh, 388px);
+  margin-top: clamp(8px, 1.8vh, 15.6px);
+  border-radius: 23px;
+  overflow: hidden;
+  background: #111b11;
+  flex-shrink: 0;
+}
+
+.sideCard .cardImageContainer {
+  width: clamp(190px, 26vh, 212px);
+  height: clamp(210px, 34vh, 300px);
+  margin-top: clamp(6px, 1.4vh, 12px);
+}
+
+.cardBgImg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main PNG layer wrapper for zoom-in entrance */
+.cardCharWrapper {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.cardCharImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom center;
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6));
+}
+
+/* Card description copy & CTA */
+.cardContent {
+  width: 100%;
+  padding-top: clamp(6px, 1.2vh, 12px);
+  padding-bottom: clamp(4px, 0.8vh, 8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-grow: 1;
+  justify-content: space-between;
+}
+
+.cardDescription {
+  width: 92%;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(10px, 1.25vh, 12px);
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.03em;
+  color: #000000;
+  margin: 0;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardDescription strong {
+  font-weight: 700;
+  color: #000000;
+}
+
+/* Pill CTA Button (#EB8013) - lifted above the foggy gradient blend */
+.cardButton {
+  margin-top: clamp(4px, 0.8vh, 8px);
+  margin-bottom: clamp(4px, 0.8vh, 8px);
+  width: clamp(104px, 13.5vh, 118px);
+  height: clamp(28px, 3.6vh, 32px);
+  background: #eb8013;
+  border-radius: 42px;
+  color: #ffffff;
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
+  font-size: clamp(11px, 1.4vh, 13px);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  box-shadow: 0 4px 12px rgba(235, 128, 19, 0.45);
+  transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  position: relative;
+  z-index: 20;
+  pointer-events: auto;
+  touch-action: manipulation;
+}
+
+.cardButton:hover,
+.cardButton:focus-visible {
+  background: #f58e22;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(235, 128, 19, 0.55);
+}
+
+.cardButton:active {
+  transform: translateY(0);
+}

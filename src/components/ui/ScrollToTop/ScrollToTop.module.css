@@ -57,11 +57,10 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .button {
-    bottom: 1.25rem;
-    right: 1.25rem;
-    width: 2.6rem;
-    height: 2.6rem;
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 }

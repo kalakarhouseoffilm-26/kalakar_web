@@ -7,6 +7,7 @@ import { Section5 } from '@/components/sections/Home/Section5'
 import { ServicesPreview } from '@/components/sections/Home/ServicesPreview'
 import { WorkSamples } from '@/components/sections/Home/WorkSamples'
 import { CTA } from '@/components/sections/Home/CTA'
+import { MobileExperience } from '@/components/sections/Mobile'
 
 export const metadata: Metadata = {
   title: 'KALAKAR — Stories that Build Brands | ഹൗസ് ഓഫ് ഫിലിം',
@@ -17,23 +18,31 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <main>
-      {/* 1. First 2 sections ~ Home: Animated Intro Reveal & Hero (Caveman Sculptor) */}
-      <IntroReveal />
-      <Hero />
+      {/* Mobile Experience (Strictly for mobile devices < 768px: Section 1 & Section 2) */}
+      <div className="mobileOnly">
+        <MobileExperience />
+      </div>
 
-      {/* 2. Sections 3, 4, 5 ~ About: Pillars (Sandstone Stele), Origin Story (Cave Painter), and Section 5 (കലാകാരൻ വന്നല്ലോ) */}
-      <Pillars />
-      <OriginStory />
-      <Section5 />
+      {/* Desktop Experience (Strictly for >= 768px) */}
+      <div className="desktopOnly">
+        {/* 1. First 2 sections ~ Home: Animated Intro Reveal & Hero (Caveman Sculptor) */}
+        <IntroReveal />
+        <Hero />
 
-      {/* 3. Section 6 ~ Services: What We Do (Rustic Hanging Boards) */}
-      <ServicesPreview />
+        {/* 2. Sections 3, 4, 5 ~ About: Pillars (Sandstone Stele), Origin Story (Cave Painter), and Section 5 (കലാകാരൻ വന്നല്ലോ) */}
+        <Pillars />
+        <OriginStory />
+        <Section5 />
 
-      {/* 4. Our Work ~ Embedded Adobe Portfolio Showcase */}
-      <WorkSamples />
+        {/* 3. Section 6 ~ Services: What We Do (Rustic Hanging Boards) */}
+        <ServicesPreview />
 
-      {/* 5. Contact Section ~ Direct WhatsApp & Instagram */}
-      <CTA />
+        {/* 4. Our Work ~ Embedded Adobe Portfolio Showcase */}
+        <WorkSamples />
+
+        {/* 5. Contact Section ~ Direct WhatsApp & Instagram */}
+        <CTA />
+      </div>
     </main>
   )
 }

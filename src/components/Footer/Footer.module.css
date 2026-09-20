@@ -22,10 +22,14 @@
   letter-spacing: 0.02em;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 767px) {
+  .footer {
+    display: none !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 767px) {
   .inner {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
+    flex-direction: row;
   }
 }
