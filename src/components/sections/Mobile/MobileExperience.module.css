@@ -14,7 +14,9 @@
 .heroSection {
   position: relative;
   width: 100%;
+  height: 100dvh;
   min-height: 100dvh;
+  max-height: 100dvh;
   background: #071c08;
   overflow: visible;
 }
@@ -177,8 +179,10 @@
 .carouselSection {
   position: relative;
   width: 100%;
-  height: 874px;
-  background: linear-gradient(#020202 0%, #071c08 35.14%, #989a92 63.93%, #ffffff 80%);
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  background: linear-gradient(180deg, #020202 0%, #071c08 35.14%, #989a92 63.93%, #ffffff 80%);
   overflow: hidden;
   display: block;
 }
@@ -223,19 +227,19 @@
   pointer-events: none;
 }
 
-/* Dynamic Big Heading */
+/* Dynamic Big Heading - Proportional to 874px height */
 .headingContainer {
   position: absolute;
-  left: 50px;
-  top: 110px;
-  width: 303.37px;
+  left: 12.43vw;
+  top: 12.58%;
+  width: 75.46vw;
   z-index: 10;
   pointer-events: none;
 }
 
 .dynamicHeading {
   font-family: var(--font-bebas), 'Bebas Neue', Impact, sans-serif;
-  font-size: clamp(64px, 11vh, 94px);
+  font-size: clamp(48px, 10.75vh, 94px);
   font-weight: 700;
   line-height: 93.725%;
   letter-spacing: 0;
@@ -246,13 +250,13 @@
   margin: 0;
 }
 
-/* Carousel Track & Stage */
+/* Carousel Track & Stage - Proportional to 874px height */
 .carouselStage {
   position: absolute;
   left: 0;
   right: 0;
-  top: 291px;
-  height: 567px;
+  top: 33.29%;
+  height: 64.87%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -261,7 +265,7 @@
   z-index: 10;
 }
 
-/* Base card shell: exact Figma carousel-card matching background-color: #ffffff, border-radius: 23px, border: none, box-shadow: none */
+/* Base card shell */
 .card {
   position: absolute;
   background-color: #ffffff;
@@ -271,38 +275,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 12px clamp(18px, 2.8vh, 26px) 12px;
+  padding: 0 3vw clamp(12px, 2.5vh, 26px) 3vw;
   cursor: grab;
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease;
 }
 
-/* Active card: Figma width: 303.369px, height: 567px */
+/* Active card: proportions width 303.369 / height 567 */
 .activeCard {
-  width: clamp(275px, 37vh, 303.37px);
-  height: clamp(470px, 65vh, 567px);
+  height: 100%;
+  aspect-ratio: 303.37 / 567;
 }
 
-/* Side card: Figma width: 232px, height: 459px */
+/* Side card: proportions width 232 / height 459 */
 .sideCard {
-  width: clamp(210px, 28vh, 232px);
-  height: clamp(380px, 53vh, 459px);
-  margin-top: clamp(16px, 3vh, 36px);
+  height: 80.95%; /* 459 / 567 = 80.95% */
+  aspect-ratio: 232 / 459;
+  margin-top: 6.35%; /* 36 / 567 = 6.35% */
 }
 
 .card:active {
   cursor: grabbing;
 }
 
-/* Card inner illustration frame matching Figma:
-   width: 279.896px; height: 388.011px;
-   margin: 15.617px 12px 0; border-radius: 23px; object-fit: cover;
-*/
+/* Card inner illustration frame */
 .cardImageContainer {
   position: relative;
-  width: clamp(250px, 34vh, 279.9px);
-  height: clamp(260px, 44vh, 388px);
-  margin-top: clamp(8px, 1.8vh, 15.6px);
+  width: calc(100% - 24px); /* 12px margin on sides */
+  height: 68.43%; /* 388.01 / 567 = 68.43% */
+  margin-top: 2.75%; /* 15.617 / 567 = 2.75% */
   border-radius: 23px;
   overflow: hidden;
   background: #111b11;
@@ -310,9 +311,9 @@
 }
 
 .sideCard .cardImageContainer {
-  width: clamp(190px, 26vh, 212px);
-  height: clamp(210px, 34vh, 300px);
-  margin-top: clamp(6px, 1.4vh, 12px);
+  width: calc(100% - 24px);
+  height: 65.35%; /* 300 / 459 = 65.35% */
+  margin-top: 2.61%; /* 12 / 459 = 2.61% */
 }
 
 .cardBgImg {
