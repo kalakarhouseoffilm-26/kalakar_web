@@ -316,7 +316,13 @@ export function MobileExperience() {
                 }}
               >
                 {/* Card Illustration Container */}
-                <div className={styles.cardImageContainer}>
+                <div 
+                  className={styles.cardImageContainer}
+                  onClick={(e) => handleButtonClick(e, item.buttonHref)}
+                  style={{ cursor: 'pointer' }}
+                  role="button"
+                  tabIndex={0}
+                >
                   <Image
                     src={item.bgImage}
                     alt=""
