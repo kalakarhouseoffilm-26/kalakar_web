@@ -103,6 +103,30 @@ export function MobileExperience() {
     return () => window.removeEventListener('hashchange', handleHash)
   }, [])
 
+  // Restore state from sessionStorage on mount (for Back button navigation)
+  useEffect(() => {
+    const savedIndex = sessionStorage.getItem('mobileCarouselIndex')
+    if (savedIndex !== null) {
+      setActiveIndex(parseInt(savedIndex, 10))
+    }
+
+    const returnToCarousel = sessionStorage.getItem('returnToCarousel')
+    if (returnToCarousel === 'true') {
+      sessionStorage.removeItem('returnToCarousel')
+      setTimeout(() => {
+        const el = document.getElementById('mobile-carousel')
+        if (el) {
+          el.scrollIntoView({ behavior: 'instant' })
+        }
+      }, 50)
+    }
+  }, [])
+
+  // Persist state to sessionStorage whenever it changes
+  useEffect(() => {
+    sessionStorage.setItem('mobileCarouselIndex', activeIndex.toString())
+  }, [activeIndex])
+
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % CAROUSEL_ITEMS.length)
   }, [])
@@ -137,6 +161,9 @@ export function MobileExperience() {
       e.stopPropagation()
       // Don't navigate if the user just finished dragging
       if (isDraggingRef.current) return
+      
+      // Set flag so we return to carousel when navigating back
+      sessionStorage.setItem('returnToCarousel', 'true')
       router.push(href)
     },
     [router]
@@ -330,11 +357,7 @@ export function MobileExperience() {
                     type="button"
                     className={styles.cardButton}
                     onPointerDownCapture={(e) => e.stopPropagation()}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      e.stopPropagation()
-                      router.push(item.buttonHref)
-                    }}
+                    onClick={(e) => handleButtonClick(e, item.buttonHref)}
                   >
                     {item.buttonText}
                   </button>
