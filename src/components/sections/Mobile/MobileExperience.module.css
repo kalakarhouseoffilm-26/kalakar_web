@@ -178,7 +178,7 @@
   position: relative;
   width: 100%;
   min-height: max(100dvh, 874px);
-  background: linear-gradient(#020202 0%, #071c08 100%, #989a92 100%, #fff 100%);
+  background: linear-gradient(#020202 0, #071c08 29%, #989a92 68%, #fff 92%);
   overflow: hidden;
   display: block;
 }
