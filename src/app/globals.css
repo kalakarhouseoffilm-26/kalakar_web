@@ -233,3 +233,25 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+/* =========================================================
+   Responsive Viewport Isolation: Mobile vs Desktop
+   Mobile devices (< 768px): Dedicated mobile experience
+   Tablets and Desktop (>= 768px): Standard website experience
+   ========================================================= */
+.desktopOnly {
+  display: block;
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .desktopOnly {
+    display: none !important;
+  }
+  .mobileOnly {
+    display: block !important;
+  }
+}
