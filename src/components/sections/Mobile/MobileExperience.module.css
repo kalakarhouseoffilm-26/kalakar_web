@@ -265,7 +265,7 @@
   z-index: 10;
 }
 
-/* Base card shell */
+/* Base card shell: exact Figma carousel-card matching background-color: #ffffff, border-radius: 23px, border: none, box-shadow: none */
 .card {
   position: absolute;
   background-color: #ffffff;
@@ -275,35 +275,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 3vw clamp(12px, 2.5vh, 26px) 3vw;
+  padding: 0 12px clamp(18px, 2.8vh, 26px) 12px;
   cursor: grab;
   overflow: hidden;
   transition: width 0.3s ease, height 0.3s ease;
 }
 
-/* Active card: proportions width 303.369 / height 567 */
+/* Active card: Figma width: 303.369px, height: 567px */
 .activeCard {
-  height: 100%;
-  aspect-ratio: 303.37 / 567;
+  width: clamp(275px, 37vh, 303.37px);
+  height: clamp(470px, 65vh, 567px);
 }
 
-/* Side card: proportions width 232 / height 459 */
+/* Side card: Figma width: 232px, height: 459px */
 .sideCard {
-  height: 80.95%; /* 459 / 567 = 80.95% */
-  aspect-ratio: 232 / 459;
-  margin-top: 6.35%; /* 36 / 567 = 6.35% */
+  width: clamp(210px, 28vh, 232px);
+  height: clamp(380px, 53vh, 459px);
+  margin-top: clamp(16px, 3vh, 36px);
 }
 
 .card:active {
   cursor: grabbing;
 }
 
-/* Card inner illustration frame */
+/* Card inner illustration frame matching Figma:
+   width: 279.896px; height: 388.011px;
+   margin: 15.617px 12px 0; border-radius: 23px; object-fit: cover;
+*/
 .cardImageContainer {
   position: relative;
-  width: calc(100% - 24px); /* 12px margin on sides */
-  height: 68.43%; /* 388.01 / 567 = 68.43% */
-  margin-top: 2.75%; /* 15.617 / 567 = 2.75% */
+  width: clamp(250px, 34vh, 279.9px);
+  height: clamp(260px, 44vh, 388px);
+  margin-top: clamp(8px, 1.8vh, 15.6px);
   border-radius: 23px;
   overflow: hidden;
   background: #111b11;
@@ -311,9 +314,9 @@
 }
 
 .sideCard .cardImageContainer {
-  width: calc(100% - 24px);
-  height: 65.35%; /* 300 / 459 = 65.35% */
-  margin-top: 2.61%; /* 12 / 459 = 2.61% */
+  width: clamp(190px, 26vh, 212px);
+  height: clamp(210px, 34vh, 300px);
+  margin-top: clamp(6px, 1.4vh, 12px);
 }
 
 .cardBgImg {
