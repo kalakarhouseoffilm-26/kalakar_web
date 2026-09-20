@@ -32,6 +32,7 @@ export default function FilmsPage() {
             title="KALAKAR Films Portfolio"
             className={styles.mobileIframe}
             loading="lazy"
+            sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           />
         </div>

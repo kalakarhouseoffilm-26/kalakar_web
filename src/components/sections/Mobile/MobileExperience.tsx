@@ -329,7 +329,12 @@ export function MobileExperience() {
                   <button
                     type="button"
                     className={styles.cardButton}
-                    onClick={(e) => handleButtonClick(e, item.buttonHref)}
+                    onPointerDownCapture={(e) => e.stopPropagation()}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      e.stopPropagation()
+                      router.push(item.buttonHref)
+                    }}
                   >
                     {item.buttonText}
                   </button>
