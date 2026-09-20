@@ -318,10 +318,14 @@ export function MobileExperience() {
                 {/* Card Illustration Container */}
                 <div 
                   className={styles.cardImageContainer}
-                  onClick={(e) => handleButtonClick(e, item.buttonHref)}
-                  style={{ cursor: 'pointer' }}
-                  role="button"
-                  tabIndex={0}
+                  onClick={(e) => {
+                    if (isActive) {
+                      handleButtonClick(e, item.buttonHref)
+                    }
+                  }}
+                  style={{ cursor: isActive ? 'pointer' : 'default' }}
+                  role={isActive ? "button" : undefined}
+                  tabIndex={isActive ? 0 : -1}
                 >
                   <Image
                     src={item.bgImage}
