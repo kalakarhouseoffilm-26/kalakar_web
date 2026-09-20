@@ -210,6 +210,7 @@ export function MobileExperience() {
             priority
             className={styles.heroCavemanImg}
           />
+          <div className={styles.cavemanBlendBox} aria-hidden="true" />
         </motion.div>
 
         {/* Bottom base shadow */}
