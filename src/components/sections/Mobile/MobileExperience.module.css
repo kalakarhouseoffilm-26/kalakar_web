@@ -177,13 +177,10 @@
 .carouselSection {
   position: relative;
   width: 100%;
-  height: 100dvh;
-  min-height: 100dvh;
-  max-height: 100dvh;
-  background: linear-gradient(180deg, #020202 0%, #071c08 35.14%, #989a92 63.93%, #ffffff 80%);
+  height: 874px;
+  background: linear-gradient(#020202 0%, #071c08 35.14%, #989a92 63.93%, #ffffff 80%);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 .carouselVignette {
@@ -228,13 +225,12 @@
 
 /* Dynamic Big Heading */
 .headingContainer {
-  position: relative;
-  margin-left: 50px;
-  margin-top: 110px;
+  position: absolute;
+  left: 50px;
+  top: 110px;
   width: 303.37px;
   z-index: 10;
   pointer-events: none;
-  flex-shrink: 0;
 }
 
 .dynamicHeading {
@@ -252,10 +248,11 @@
 
 /* Carousel Track & Stage */
 .carouselStage {
-  position: relative;
-  width: 100%;
-  margin-top: 17px; /* 10px gap + 7px more gap requested */
-  flex: 1;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 291px;
+  height: 567px;
   display: flex;
   justify-content: center;
   align-items: flex-start;

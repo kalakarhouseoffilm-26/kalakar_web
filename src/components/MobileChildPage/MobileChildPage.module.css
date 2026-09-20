@@ -151,9 +151,10 @@
   z-index: 10;
   margin-top: clamp(330px, 46vh, 410px);
   padding-inline: clamp(20px, 6vw, 32px);
-  padding-bottom: clamp(100px, 14vh, 160px);
+  padding-bottom: clamp(40px, 5vh, 60px);
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .title {
@@ -171,10 +172,9 @@
 .subtitle {
   font-family: var(--font-poppins), 'Poppins', sans-serif;
   font-size: clamp(13px, 1.8vh, 15px);
-  line-height: 1.65;
-  color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 20px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 24px;
 }
 
 .subtitle strong {
@@ -183,6 +183,9 @@
 }
 
 .body {
-  margin-top: 10px;
+  margin-top: 12px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
