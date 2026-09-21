@@ -19,8 +19,9 @@ export default function FilmsPage() {
           <>
             <strong>Stories. Visuals. Emotion.</strong>
             <br />
-            We turn ideas into cinematic experiences that people remember. From captivating brand
-            films to evocative visual odysseys, we produce cinema that sparks profound emotion.
+            We turn ideas into cinematic experiences that people remember. From
+            captivating brand films to evocative visual odysseys, we produce
+            cinema that sparks profound emotion.
           </>
         }
         bgImage="/medium_device/cave_art_bg.png"
@@ -70,8 +71,8 @@ export default function FilmsPage() {
             <span className={styles.kicker}>Cinematic Productions</span>
             <h1 className={styles.heading}>OUR FILMS</h1>
             <p className={styles.subheading}>
-              From captivating brand films and ads to evocative visual odysseys, we direct and
-              produce cinema that sparks profound emotion.
+              From captivating brand films and ads to evocative visual odysseys,
+              we direct and produce cinema that sparks profound emotion.
             </p>
           </div>
         </div>

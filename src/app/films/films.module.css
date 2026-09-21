@@ -43,6 +43,7 @@
 }
 
 .mobileIframeWrapper {
+  position: relative;
   width: 100%;
   height: clamp(340px, 60vh, 520px);
   max-height: 60vh;
@@ -52,7 +53,6 @@
   border: none;
   box-shadow: none;
   margin-top: 10px;
-  position: relative;
   z-index: 15;
   touch-action: auto !important;
   pointer-events: auto !important;
@@ -60,7 +60,12 @@
 }
 
 .mobileIframe {
-  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px; /* iOS Safari width bug fix */
+  min-width: 100%; /* iOS Safari width bug fix */
+  max-width: 100%;
   height: 100%;
   border: none;
   display: block;
